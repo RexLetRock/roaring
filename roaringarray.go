@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/RoaringBitmap/roaring/internal"
+	"github.com/RexLetRock/roaring/internal"
 )
 
 type container interface {
@@ -467,7 +467,7 @@ func (ra *roaringArray) serializedSizeInBytes() uint64 {
 }
 
 //
-// spec: https://github.com/RoaringBitmap/RoaringFormatSpec
+// spec: https://github.com/RexLetRock/roaringFormatSpec
 //
 func (ra *roaringArray) writeTo(w io.Writer) (n int64, err error) {
 	hasRun := ra.hasRunCompression()
@@ -546,7 +546,7 @@ func (ra *roaringArray) writeTo(w io.Writer) (n int64, err error) {
 }
 
 //
-// spec: https://github.com/RoaringBitmap/RoaringFormatSpec
+// spec: https://github.com/RexLetRock/roaringFormatSpec
 //
 func (ra *roaringArray) toBytes() ([]byte, error) {
 	var buf bytes.Buffer

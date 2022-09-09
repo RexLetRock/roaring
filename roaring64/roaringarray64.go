@@ -1,6 +1,6 @@
 package roaring64
 
-import "github.com/RoaringBitmap/roaring"
+import "github.com/RexLetRock/roaring"
 
 type roaringArray64 struct {
 	keys            []uint32
