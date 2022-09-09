@@ -4,8 +4,9 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-	"github.com/RoaringBitmap/roaring/internal"
 	"io"
+
+	"github.com/RoaringBitmap/roaring/internal"
 )
 
 type container interface {
@@ -327,7 +328,7 @@ func (ra *roaringArray) getUnionedWritableContainer(pos int, other container) co
 }
 
 func (ra *roaringArray) getWritableContainerAtIndex(i int) container {
-	if ra.needCopyOnWrite[i] {
+	if len(ra.needCopyOnWrite) > i && ra.needCopyOnWrite[i] {
 		ra.containers[i] = ra.containers[i].clone()
 		ra.needCopyOnWrite[i] = false
 	}
